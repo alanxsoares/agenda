@@ -1,21 +1,27 @@
 {% load django_bootstrap5 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link href="css/style.css" rel="stylesheet">
-    {% bootstrap_css %}
-  </head>
-  <body>
-    <header>
-
-    </header>
-     {% block conteudo %}
-
-    {% endblock conteudo %}
-  
-   {% bootstrap_javascript %}
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="content-linguagem" content="pt-br">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        i
+        <meta name="description" content="Agenda">
+        <title>Agenda - Django</title>
+        {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'global/style.css' %}">
+    </head>
+    <body class="bg-secondary bg-gradient">
+        <p class="text-center">Ola mundo</p>
+        <nav class="navbar sticky-top navbar-dark bg-dark ">
+            <div class="container">
+                <a class="navbar-brand" href="#">Sticky top</a>
+            </div>
+        </nav>
+        {% block conteudo %}
+        {% endblock conteudo %}
+        {% bootstrap_javascript %}
+    </body>
 </html>

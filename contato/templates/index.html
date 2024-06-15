@@ -1,5 +1,41 @@
 {% extends "global/base.html" %}
-
 {% block conteudo %}
-    CONTEÚDO DA PÁGINA DE CADASTRO
+    <div class = "container">
+        <div>
+            <form class="form-control">
+                <input type="text >
+            </form>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-sm table-striped rounded-4 overflow-hidden mt-5">
+                <thead>
+                    <capition>
+                    <form class="form-control">
+                        <input type="text">
+                    </form>
+                    </capition>
+                    <tr class="table-dark ">
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Sobrenome</th>
+                        <th scope="col">email</th>
+                        <th scope="col">telefone</th>
+                        <th scope="col">x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cn in consulta %}
+                        <tr>
+                            <th scope="row">{{ cn.id }}</th>
+                            <td>{{ cn.nome }}</td>
+                            <td>{{ cn.sobrenome }}</td>
+                            <td>{{ cn.email }}</td>
+                            <td>{{ cn.telefone }}</td>
+                            <td>0</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock conteudo %}

@@ -1,3 +1,5 @@
 from django.contrib import admin
+from contato.models import Categoria, Contato
 
-# Register your models here.
+admin.site.register(Categoria)
+admin.site.register(Contato)
