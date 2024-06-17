@@ -3,5 +3,5 @@ from contato import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('contato/', views.show_contato, name='show')
+    path('contato/<int:contato_id>/', views.show_contato, name='show')
 ]
