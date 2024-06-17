@@ -1,19 +1,9 @@
 {% extends "global/base.html" %}
 {% block conteudo %}
-    <div class = "container">
-        <div>
-            <form class="form-control">
-                <input type="text >
-            </form>
-        </div>
+    <div id="main" class="container">
         <div class="table-responsive">
             <table class="table table-sm table-striped rounded-4 overflow-hidden mt-5">
                 <thead>
-                    <capition>
-                    <form class="form-control">
-                        <input type="text">
-                    </form>
-                    </capition>
                     <tr class="table-dark ">
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
@@ -26,7 +16,9 @@
                 <tbody>
                     {% for cn in consulta %}
                         <tr>
-                            <th scope="row">{{ cn.id }}</th>
+                            <th scope="row">
+                                <a href="#">{{ cn.id }}</a>
+                            </th>
                             <td>{{ cn.nome }}</td>
                             <td>{{ cn.sobrenome }}</td>
                             <td>{{ cn.email }}</td>
