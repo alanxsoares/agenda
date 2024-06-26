@@ -15,7 +15,7 @@ class Contato(models.Model):
     telefone = models.CharField(max_length=15)
     show = models.BooleanField(default=True)  # pyright:ignore
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    img = models.ImageField(blank=True, upload_to='images/%Y/%m')
+    img = models.ImageField(default='imgs/1.png',  upload_to='images/%Y/%m')
 
     def __str__(self):   # pyright:ignore
         return self.nome
