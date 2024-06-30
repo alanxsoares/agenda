@@ -1,0 +1,25 @@
+<!-- Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="bi bi-exclamation-triangle-fill"></i> Excluir Contato</h4>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center">
+        Você tem certeza que deseja excluir?<br>
+        {{contato.nome}} {{contato.sobrenome}}
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">cancelar</button>
+        <a href="{% url 'contato:delete' pk=contato.id %}" class="btn btn-primary">excluir</a>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+{% extends "global/base.html" %}
+{% load django_bootstrap5 %}
+{% load widget_tweaks %}
+{% block conteudo %}
+<div class="container mt-5  d-flex justify-content-center align-items-center">
+  <div class="card" style="width:800px">
+    <p class="display-4 m-2">Login</p>
+    <form action="{% url 'contato:login' %}" autocomplete="off" method="post" class="form-control">
+      {% csrf_token %}
+      {% for field in form %}
+      <div class="form-floating mb-3">
+        {{ field|append_attr:"class:form-control"|append_attr:"placeholder:#" }}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field.errors }}
+      </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-outline-primary">
+        <i class="bi bi-check-lg"></i> Enviar
+      </button>
+
+    </form>
+  </div </div>
+  {% endblock %}

@@ -13,42 +13,19 @@
         <link rel="stylesheet" href="{% static '/css/style.css' %}">
         <link rel="stylesheet"
               href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
-    <body class="bg-secondary ">
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'contato:index' %}">Agenda Django</a>
-                <button class="navbar-toggler"
-                        type="button" o
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mynavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="mynavbar">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'contato:create'%}">adicionar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" method="get" action="{% url 'contato:search' %}">
-                        <input class="form-control me-2"
-                               name="q"
-                               type="text"
-                               value="{{ q_value }}"
-                               placeholder="Search">
-                        <button class="btn btn-primary" type="submit">Search</button>
-                    </form>
-                </div>
+    <body class="bg-secondary">
+        {% include 'global/partial/_navbar.html' %}
+        {% if messages %}
+            <div class="toast-container position-absolute bottom-0 end-0 p-3">
+                {% for message in messages %}
+                    {% include 'global/partial/_toast.html' %}
+                {% endfor %}
             </div>
-        </nav>
+        {% endif %}
         {% block conteudo %}
         {% endblock conteudo %}
-        {% bootstrap_javascript %}
+        <script src= "{% static '/js/script.js' %}"></script>
     </body>
 </html>

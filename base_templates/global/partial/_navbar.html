@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'contato:index' %}">Agenda</a>
+    <button class="navbar-toggler" type="button" o data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        {% if user.is_authenticated %}
+
+        <li class="nav-item">
+          <a class="nav-link"><i class="bi bi-person-fill"></i> {{ user.first_name }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contato:create'%}">adicionar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contato:logout'%}">Sair</a>
+
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contato:login'%}">login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contato:create_user' %}">criar conta</a>
+        </li>
+        {% endif%}
+      </ul>
+      <form class="d-flex" method="get" action="{% url 'contato:search' %}">
+        <input class="form-control me-2" name="q" type="text" value="{{ q_value }}" placeholder="Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
